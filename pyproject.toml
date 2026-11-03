@@ -1,0 +1,24 @@
+[project]
+name = "sheetproof"
+version = "0.1.0"
+description = "엑셀 수식을 검증된 Python 코드로 변환하는 도구"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = ["openpyxl>=3.1.2"]
+
+[project.optional-dependencies]
+app = ["gradio==5.50.0"]
+llm = ["anthropic>=0.69", "openai>=1.50"]
+dev = ["pytest>=8"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]
