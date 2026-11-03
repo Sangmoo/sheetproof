@@ -1,5 +1,5 @@
 ---
-title: workflow
+title: Sheetproof
 emoji: ⚡
 colorFrom: indigo
 colorTo: indigo
@@ -11,4 +11,6 @@ hf_oauth: true
 hf_oauth_scopes:
 - inference-api
 - write-repos
+license: mit
+short_description: excel sheet proof
 ---
