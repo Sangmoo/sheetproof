@@ -19,6 +19,16 @@ from sheetproof.llm import PROVIDERS, LLMError, complete_with_llm, llm_candidate
 from sheetproof.verify import STATUS_LABELS, fmt_value  # noqa: E402
 from sheetproof.viz import render_mermaid, render_svg  # noqa: E402
 
+try:  # HF ZeroGPU 하드웨어는 @spaces.GPU 함수가 하나도 없으면 기동에 실패한다
+    import spaces
+
+    @spaces.GPU
+    def _zerogpu_placeholder():
+        """GPU 를 쓰지 않는다. ZeroGPU 기동 조건을 맞추기 위한 빈 함수."""
+        return None
+except ImportError:
+    pass
+
 SAMPLES_DIR = Path(__file__).resolve().parent / "samples"
 KIND_LABELS = {"input": "입력", "intermediate": "중간 계산", "output": "출력"}
 
